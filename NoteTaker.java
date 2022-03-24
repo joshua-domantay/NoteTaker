@@ -14,10 +14,11 @@ public class NoteTaker {
             int _choice = _input.nextInt();
             switch(_choice) {
                 case 1:
-                    createNewFile();
+                    modifyNotes(_input, null);
                     break;
                 case 2:
-                    openSavedFile();
+                    NoteTakerList _saved = openSavedNotes();
+                    modifyNotes(_input, _saved);
                     break;
                 case 3:
                     _running = false;
@@ -25,25 +26,55 @@ public class NoteTaker {
                 default:
                     break;
             }
-            if((_choice == 1) || (_choice == 2)) { clearScreen(); }
+            if(_running) { clearScreen(); }
         }
+
+        _input.close();
     }
 
     private static void printHeader() { System.out.println("================ Note Taker ================"); }
 
     private static void printMenuPrompt() {
-        System.out.println("1.) Create new file");
-        System.out.println("2.) Open saved file");
+        System.out.println("1.) Create new notes");
+        System.out.println("2.) Open saved notes");
         System.out.println("3.) Exit program");
         System.out.print("\t> ");
     }
 
-    private static void createNewFile() {       // Possibly return File later
-        // Create new file
+    private static void printModifyPrompt() {
+        System.out.println("1.) Add note");
+        System.out.println("2.) Print all notes");
+        System.out.println("3.) Return to main menu");
+        System.out.print("\t> ");
     }
 
-    private static void openSavedFile() {       // Possibly return File later
-        // Open saved file
+    private static void modifyNotes(Scanner _input, NoteTakerList _notes) {
+        if(_notes == null) { _notes = new NoteTakerList(); }
+
+        boolean _running = true;
+        while(_running) {
+            clearScreen();
+            printHeader();
+            printModifyPrompt();
+
+            int _choice = _input.nextInt();
+            switch(_choice) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    _running = false;
+                    break;
+                default:
+                    break;
+            }
+            if(_running) { clearScreen(); }
+        }
+    }
+
+    private static NoteTakerList openSavedNotes() {
+        return null;
     }
 
     private static void clearScreen() {     // throws IOException, InterruptedException
