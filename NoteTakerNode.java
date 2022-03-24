@@ -5,9 +5,9 @@ public class NoteTakerNode {        // LinkedListNode
     private NoteTakerNode next;
 
     public NoteTakerNode() { }
-    public NoteTakerNode(String title, String note) {
-        this.title = title;
-        this.note = note;
+    public NoteTakerNode(String _title, String _note) {
+        title = _title;
+        note = _note;
     }
 
     // Getters and Setters

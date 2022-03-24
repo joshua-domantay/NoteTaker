@@ -51,6 +51,12 @@ public class NoteTaker {
     private static void modifyNotes(Scanner _input, NoteTakerList _notes) {
         if(_notes == null) { _notes = new NoteTakerList(); }
 
+        // Prompt if notes are arranged alphabetically
+        clearScreen();
+        printHeader();
+        System.out.print("Organize notes alphabetically (1 = yes)?\n\t> ");
+        if(_input.nextInt() == 1) { _notes.setOrganize(true); }
+
         boolean _running = true;
         while(_running) {
             clearScreen();
